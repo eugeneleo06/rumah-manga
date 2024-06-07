@@ -1,0 +1,6 @@
+{
+    "require": {
+        "aws/aws-sdk-php": "^3.311",
+        "twbs/bootstrap": "^5.3"
+    }
+}
