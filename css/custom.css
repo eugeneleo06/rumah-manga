@@ -33,13 +33,15 @@ body {
 
 
 nav {
-    padding-top: 4vh!important;
-    padding-bottom: 4vh!important;
+    /* padding-top: 1vh!important;
+    padding-bottom: 1vh!important; */
 }
 
 .search-nav {
     background-color: black;
     display: flex;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
 }
 
 .form-search {
@@ -96,13 +98,13 @@ nav {
 }
 
 .title-container {
-    background-image: linear-gradient(black,rgb(29, 29, 29));
+    background-image: linear-gradient(black,rgb(0, 0, 0));
     color: gold;
     border-radius: 5px;
-    margin-top: 3vh;
+    margin-top: 4vh;
     padding-top: 4vh;
     padding-bottom: 4vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .title-container h1 {
@@ -110,15 +112,16 @@ nav {
 }
 
 .card-container {
-    margin-top: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 9vh;
     display: flex;
     justify-content: space-between;
     gap: 20px; /* Space between cards */
 }
 .card {
     position: relative;
-    width: 150px; /* Adjust as needed */
-    height: 150px; /* Adjust as needed */
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -153,6 +156,23 @@ nav {
 }
 .card:hover .description {
     opacity: 1;
+}
+
+.nav-shadow {
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-img {
+    margin-bottom: 2vh;
+}
+
+.action-row {
+    margin-top: 3vh;
+}
+
+.action-card{
+    width: auto;
+    height: auto;
 }
 
 @keyframes marquee {

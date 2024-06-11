@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="border-radius:5px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-shadow" style="border-radius:5px;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,7 +16,7 @@
                     <a class="nav-link" href="#">MANGA LIST</a>
                 </li>
             </ul>
-            <img src="img/logo.png" width="170" class="nav-img">
+            <img src="img/logo.png" width="250" class="nav-img">
         </div>
     </nav>
     <nav class="navbar search-nav" style="border-radius:5px;">
