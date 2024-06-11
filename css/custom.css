@@ -1,12 +1,43 @@
 * {
     font-family: "Rubik", sans-serif;
     font-style: italic;
+    /* font-size: 1 vw; */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    flex: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body {
     opacity: 0.8;
     background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#e9e9e9 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #e9e9e9 2px, #ffffff 2px) -1px 0;
     background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+}
+
+footer {
+    margin-top: 5vh;
+    background-color: black!important;
+    color: gold;
+    text-align: center;
+    align-items: center;
+    min-height: 5vh;
+}
+
+footer p {
+    margin-top: 2vh;
+}
+
+.footer-head {
+    min-height: 3vh;
+    background-color: white!important;
 }
 
 .bg-home {
@@ -31,11 +62,6 @@ body {
     font-weight: 700;
 }
 
-
-nav {
-    /* padding-top: 1vh!important;
-    padding-bottom: 1vh!important; */
-}
 
 .search-nav {
     background-color: black;
@@ -73,20 +99,25 @@ nav {
     border-radius: 5px; 
 }
 .marquee {
-    display: inline-block;
-    animation: marquee 10s linear infinite;
+    display: flex;
+    animation: marquee 5s linear infinite;
+    white-space: nowrap;
 }
 .marquee img {
     width: 2000px; /* Adjust the width as needed */
     height: 100px; /* Adjust the height as needed */
-    object-fit: cover;
+    display: inline-block;
 }
+
 @keyframes marquee {
-    from {
-        transform: translateX(100%);
+    0%{
+        transform: translateX(0%);
     }
-    to {
-        transform: translateX(calc(-100% - 20px)); /* Adjust to account for padding */
+    50%{
+        transform: translateX(-60%);
+    }
+    100% {
+        transform: translateX(-120%);
     }
 }
 
@@ -109,6 +140,15 @@ nav {
 
 .title-container h1 {
     text-align: center;
+}
+
+.page-container {
+    background: white!important;
+    border-radius: 5px;
+    margin-top: 4vh;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .card-container {
@@ -175,13 +215,34 @@ nav {
     height: auto;
 }
 
-@keyframes marquee {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+.chapter-list {
+    width: 100%;
+}
+
+.btn-select-chapter {
+    width: 100%;
+    background-color: gold;
+    border-radius: 5px;
+    color: black;
+    font-weight: 700;
+}
+
+.btn-select-chapter:hover {
+    background-color: rgb(212, 183, 19);
+}
+
+.read-title {
+    color: white;
+}
+
+.read-section {
+    margin-top: 4vh;
+    text-align: center;
+}
+
+.read-section img {
+    border: 2px black solid;
+    width: 85%;
 }
 
 @media (min-width: 991px) {
