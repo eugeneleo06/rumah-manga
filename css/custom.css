@@ -1,7 +1,6 @@
 * {
     font-family: "Rubik", sans-serif;
     font-style: italic;
-    /* font-size: 1 vw; */
     margin: 0;
     padding: 0;
 }
@@ -33,11 +32,13 @@ footer {
 
 footer p {
     margin-top: 2vh;
+    font-weight: 600;
 }
 
 .footer-head {
-    min-height: 3vh;
+    min-height: 2vh;
     background-color: white!important;
+    border-top: 1px solid black;
 }
 
 .bg-home {
@@ -139,6 +140,10 @@ footer p {
 }
 
 .title-container h1 {
+    text-align: center;
+}
+
+.title-container h5 {
     text-align: center;
 }
 
@@ -245,6 +250,123 @@ footer p {
     width: 85%;
 }
 
+.view-container {
+    margin-top: 5vh;
+}
+
+.view-container img {
+    border: 2px solid black;
+}
+
+.view-img-wrapper {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.view-img-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.view-img-txt {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.detail-container {
+    font-size: 1.1em;
+    border: 2px solid black;
+    background-color: white;
+    color: #000000;
+    border-radius: 5px;
+    padding-left: 1vw!important;
+    padding-top: 1vh!important;
+    padding-bottom: 1vh!important;
+    height: 100%;
+    font-weight: 500;
+}
+
+.detail-container span {
+    font-style: normal;
+}
+
+.detail-span {
+    display: inline-block;
+    width: 150px;
+}
+
+.synopsis-container {
+    background-image: linear-gradient(black,rgb(0, 0, 0));
+    color: gold;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    font-weight: 600    ;
+}
+
+.synopsis-wrapper {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.synopsis-detail {
+    padding : 2vh 2vw 2vh 2vw;
+}
+
+.chapter-title {
+    background-image: linear-gradient(black,rgb(0, 0, 0));
+    color: gold;
+    border-radius: 5px 5px 0 0;
+    margin-top: 1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.chapter-title h5 {
+    text-align: center;
+}
+
+.chapter-view-list {
+    font-weight: 600;
+    padding: 2vh 1vw;
+    background-color: white;
+    height: 35vh;
+    border: 2px solid black;
+    overflow-y: scroll;
+}
+
+.chapter-list p:hover{
+    color: gold;
+    cursor: pointer!important;
+}
+
+.chapter-list span {
+    float: right;
+}
+
+
 @media (min-width: 991px) {
     .nav-button a{
         margin-left:2vw;
@@ -261,5 +383,11 @@ footer p {
     }
     .search-btn{
         margin-top: 0!important;
+    }
+}
+
+@media (max-width: 767px) {
+    .synopsis-wrapper {
+        margin-top:3vh;
     }
 }
