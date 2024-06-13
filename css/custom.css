@@ -16,7 +16,7 @@ main {
 }
 
 body {
-    opacity: 0.8;
+    opacity: 1;
     background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#e9e9e9 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #e9e9e9 2px, #ffffff 2px) -1px 0;
     background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
 }
@@ -243,6 +243,8 @@ footer p {
 .read-section {
     margin-top: 4vh;
     text-align: center;
+    background-color: black;
+    opacity: 1;
 }
 
 .read-section img {
@@ -252,10 +254,6 @@ footer p {
 
 .view-container {
     margin-top: 5vh;
-}
-
-.view-container img {
-    border: 2px solid black;
 }
 
 .view-img-wrapper {
@@ -300,7 +298,6 @@ footer p {
     padding-left: 1vw!important;
     padding-top: 1vh!important;
     padding-bottom: 1vh!important;
-    height: 100%;
     font-weight: 500;
 }
 
@@ -327,12 +324,13 @@ footer p {
     padding-right: 0!important;
     height: 100%;
     border: 2px solid black;
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: white;
 }
 
 .synopsis-detail {
-    padding : 2vh 2vw 2vh 2vw;
+    padding : 1vh 1vw 1vh 1vw;
+    overflow-y: scroll;
 }
 
 .chapter-title {
@@ -357,12 +355,12 @@ footer p {
     overflow-y: scroll;
 }
 
-.chapter-list p:hover{
+.chapter-view-list p:hover{
     color: gold;
     cursor: pointer!important;
 }
 
-.chapter-list span {
+.chapter-view-list span {
     float: right;
 }
 
@@ -389,5 +387,9 @@ footer p {
 @media (max-width: 767px) {
     .synopsis-wrapper {
         margin-top:3vh;
+    }
+
+    .page-container {
+        font-size: 2vw;
     }
 }
