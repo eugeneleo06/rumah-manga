@@ -46,20 +46,20 @@ require('layout/header.php');
                 <h1>ACTION MANGA</h1>
             </div>
             <div class="row action-row">
-                <div class="col-md-3 col-6">
+                <div class="col-md-3 col-6 pt-3">
                     <div class="card action-card">
                         <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
                     </div>            
                 </div>
-                <div class="col-md-3 col-6">
+                <div class="col-md-3 col-6 pt-3">
                     Description
                 </div>
-                <div class="col-md-3 col-6">
+                <div class="col-md-3 col-6 pt-3">
                     <div class="card action-card">
                         <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
                     </div>            
                 </div>
-                <div class="col-md-3 col-6">
+                <div class="col-md-3 col-6 pt-3">
                     Description
                 </div>
             </div>

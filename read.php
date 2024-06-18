@@ -38,7 +38,7 @@ require('layout/header.php');
             <img src="img/example-page-2.jpg">
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid pb-5">
             <div class="page-container">
                 <div class="row justify-content-md-center justify-content-around">
                     <div class="col-md-2 col-10 pb-4 pb-md-0">

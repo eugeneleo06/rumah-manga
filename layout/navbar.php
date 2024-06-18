@@ -10,10 +10,10 @@
                     <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item nav-button">
-                    <a class="nav-link" href="#">LATEST MANGA</a>
+                    <a class="nav-link" href="latest.php">LATEST MANGA</a>
                 </li>
                 <li class="nav-item nav-button">
-                    <a class="nav-link" href="#">MANGA LIST</a>
+                    <a class="nav-link" href="search.php">MANGA LIST</a>
                 </li>
             </ul>
             <img src="img/logo.png" width="250" class="nav-img">
