@@ -1,5 +1,10 @@
 <?php
 
+ob_start();
+session_start();
+
+require 'api/get_index.php';
+
 require('layout/header.php');
 ?>
 <body class="bg-home">
@@ -20,48 +25,47 @@ require('layout/header.php');
                 <h1>LATEST UPDATES</h1>
             </div>
             <div class="card-container">
-                <div class="card">
-                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 1">
-                    <div class="description">Description for Image 1</div>
-                </div>
-                <div class="card">
-                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 2">
-                    <div class="description">Description for Image 2</div>
-                </div>
-                <div class="card">
-                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 3">
-                    <div class="description">Description for Image 3</div>
-                </div>
-                <div class="card">
-                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    <div class="description">Description for Image 4</div>
-                </div>
-                <div class="card">
-                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 5">
-                    <div class="description">Description for Image 5</div>
-                </div>
+                <?php 
+                    foreach($mangas_latest as $v) {
+                        echo '<div class="card">';
+                        echo '<img src="'.$v['cover_img'].'">';
+                        echo '<div class="description">';
+                        // echo $v['title'];
+                        echo '<p>';
+                        echo '<span class="title-latest">'.$v['title'].'</span>';
+                        echo '<br>';
+                        echo $v['author_name'];
+                        echo '<br>';
+                        echo ucfirst(strtolower($v['status']));
+                        echo '</p>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                ?>
             </div>
 
             <div class="title-container">
                 <h1>ACTION MANGA</h1>
             </div>
-            <div class="row action-row">
-                <div class="col-md-3 col-6 pt-3">
-                    <div class="card action-card">
-                        <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    </div>            
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    Description
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    <div class="card action-card">
-                        <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    </div>            
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    Description
-                </div>
+            <div class="row action-row align-items-center">
+                <?php
+                    foreach($mangas_action as $v) {
+                        echo '<div class="col-md-3 col-6 pt-3">';
+                        echo '<div class="card action-card">';
+                        echo '<img src="'.$v['cover_img'].'">';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '<div class="col-md-3 col-6 pt-3">';
+                        echo '<p class="action-p">';
+                        echo '<span class="title-latest">'.$v['title'].'</span>';
+                        echo '<br>';
+                        echo $v['author_name'];
+                        echo '<br>';
+                        echo ucfirst(strtolower($v['status']));
+                        echo '</p>';
+                        echo '</div>';
+                    }
+                ?>
             </div>
         </div>
         <?php

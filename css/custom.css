@@ -196,6 +196,7 @@ footer p {
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
+    font-size: 0.8em;
 }
 
 .card:hover img {
@@ -412,6 +413,15 @@ footer p {
     background-color: #f8d7da !important;
     border-color: #f5c6cb !important;
     color: #721c24 !important;
+}
+
+.title-latest {
+    font-weight: 600;
+    font-style: normal;
+}
+
+.action-p {
+    font-size: 1.3em;
 }
 
 
