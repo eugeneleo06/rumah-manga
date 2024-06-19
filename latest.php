@@ -1,4 +1,16 @@
 <?php
+ob_start();
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+}
+
+require 'api/get_latest.php';
 
 require('layout/header.php');
 ?>
@@ -16,38 +28,60 @@ require('layout/header.php');
         </div>
 
         <div class="container view-container">
-            <div class="row action-row">
-                <div class="col-md-3 col-6 pt-3">
-                    <div class="card action-card">
-                        <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    </div>            
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    Description
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    <div class="card action-card">
-                        <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    </div>            
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    Description
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    <div class="card action-card">
-                        <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    </div>            
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    Description
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    <div class="card action-card">
-                        <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev//882724ca-2505-11ef-bc4d-7bcd02043035.jpg" alt="Image 4">
-                    </div>            
-                </div>
-                <div class="col-md-3 col-6 pt-3">
-                    Description
+            <div class="row action-row align-items-center">
+            <?php
+                    foreach($mangas as $v) {
+                        echo '<div class="col-md-3 col-6 pt-3">';
+                        echo '<div class="card action-card" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
+                        echo '<img src="'.$v['cover_img'].'">';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '<div class="col-md-3 col-6 pt-3">';
+                        echo '<p class="action-p">';
+                        echo '<span class="title-latest">'.$v['title'].'</span>';
+                        echo '<br>';
+                        echo $v['author_name'];
+                        echo '<br>';
+                        echo ucfirst(strtolower($v['status']));
+                        echo '<br>';
+                        echo 'Latest Chapter : '.$v['latest_chapter_name'];
+                        echo '</p>';
+                        echo '</div>';
+                    }
+                ?>
+            </div>
+            <div class="row flex align-items-center">
+                <div class="col-12 col-md-2 offset-md-10">
+                <?php
+                    echo '<nav class="pg-nav">';
+                    echo '<ul class="pagination">';
+                    
+                    // Previous button
+                    if ($page > 1) {
+                        echo '<li class="page-item page-navigator"><a class="page-link" href="?page=' . ($page - 1) . '">Previous</a></li>';
+                    } else {
+                        echo '<li class="page-item page-navigator disabled"><a class="page-link">Prev</a></li>';
+                    }
+
+                    // Page buttons
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        if ($i == $page) {
+                            echo '<li class="page-item page-num active"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+                        } else {
+                            echo '<li class="page-item page-num"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+                        }
+                    }
+
+                    // Next button
+                    if ($page < $totalPages) {
+                        echo '<li class="page-item page-navigator"><a class="page-link" href="?page=' . ($page + 1) . '">Next</a></li>';
+                    } else {
+                        echo '<li class="page-item page-navigator disabled"><a class="page-link">Next</a></li>';
+                    }
+
+                    echo '</ul>';
+                    echo '</nav>';
+                ?>
                 </div>
             </div>
         </div>

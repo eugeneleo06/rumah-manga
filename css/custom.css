@@ -452,6 +452,50 @@ footer p {
     text-decoration: none!important;
 }
 
+.pg-nav {
+    left: 80%;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.page-item {
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+}
+
+.page-link {
+    font-style: normal;
+}
+
+.page-navigator a {
+    color: gold;
+}
+
+.page-item .page-link {
+    color: black;
+    background-color: gold;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: gold;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: black;
+    background-color: white;
+    border-color: lightgray;
+}
+
+.page-num a{
+    border-radius: 2px;
+}
+
 @media (min-width: 991px) {
     .nav-button a{
         margin-left:2vw;

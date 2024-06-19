@@ -60,10 +60,26 @@ $formattedDate = $date->format('d F Y');
                         <span><?php echo $formattedDate?></span>
                         <br>
                         <span class="detail-span">First Chap : </span>
-                        <span>Chapter <?php echo $chapters[0]['name']?></span>
+                        <span>Chapter 
+                        <?php 
+                        if (count($chapters) > 0) {
+                            echo $chapters[0]['name'];
+                        } else {
+                            echo '-';
+                        }  
+                        ?>
+                        </span>
                         <br>
                         <span class="detail-span">Latest Chap : </span>
-                        <span>Chapter <?php echo $chapters[count($chapters)-1]['name']?></span>
+                        <span>Chapter 
+                        <?php 
+                        if (count($chapters) > 0) {
+                            echo $chapters[count($chapters)-1]['name'];
+                        } else {
+                            echo '-';
+                        }  
+                        ?>
+                        </span>                    
                     </div>
                 </div>
                 <br>
