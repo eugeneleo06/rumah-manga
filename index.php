@@ -27,10 +27,9 @@ require('layout/header.php');
             <div class="card-container">
                 <?php 
                     foreach($mangas_latest as $v) {
-                        echo '<div class="card">';
+                        echo '<div class="card" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '<div class="description">';
-                        // echo $v['title'];
                         echo '<p>';
                         echo '<span class="title-latest">'.$v['title'].'</span>';
                         echo '<br>';
@@ -51,7 +50,7 @@ require('layout/header.php');
                 <?php
                     foreach($mangas_action as $v) {
                         echo '<div class="col-md-3 col-6 pt-3">';
-                        echo '<div class="card action-card">';
+                        echo '<div class="card action-card" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '</div>';
                         echo '</div>';
@@ -62,6 +61,8 @@ require('layout/header.php');
                         echo $v['author_name'];
                         echo '<br>';
                         echo ucfirst(strtolower($v['status']));
+                        echo '<br>';
+                        echo 'Latest Chapter : '.$v['latest_chapter_name'];
                         echo '</p>';
                         echo '</div>';
                     }

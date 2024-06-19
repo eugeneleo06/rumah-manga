@@ -1,6 +1,21 @@
 <?php
 
+ob_start();
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET['q'])) {
+        $secure_id = $_GET['q'];
+    }
+}
+
+require 'api/get_view.php';
+
 require('layout/header.php');
+
+$date = new DateTime($manga['modified_date']);
+$formattedDate = $date->format('d F Y');
+
 ?>
 <body class="bg-home">
     <div class="wrapper">
@@ -17,10 +32,12 @@ require('layout/header.php');
 
         <div class="view-container">
             <div class="view-img-wrapper">
-                <img src="https://wallpapercave.com/wp/wp12422995.jpg" class="w-100 view-img" title="lol">
+                <img src="<?php echo $manga['headline_img'];?>" class="w-100 view-img">
                 <div class="overlay">
                     <div class="view-img-txt">
-                        Title<br>Author<br>Genre
+                        <h2><?php echo $manga['title'] ?></h2>
+                        <h4><?php echo $manga['author_name'] ?></h4>
+                        <h4><?php echo $manga['genre']?></h4>
                     </div>
                 </div>
             </div>
@@ -31,22 +48,22 @@ require('layout/header.php');
                 <div class="col-12 col-md-6">
                     <div class="col-12 detail-container" id="col1">
                         <span class="detail-span">Author : </span>
-                        <span>Rose</span>
+                        <span><?php echo $manga['author_name']?></span>
                         <br>
                         <span class="detail-span">Status : </span>
-                        <span>Ongoing</span>
+                        <span><?php echo ucfirst(strtolower($manga['status']))?></span>
                         <br>
                         <span class="detail-span">Genres : </span>
-                        <span>Action - Romance</span>
+                        <span><?php echo $manga['genre']?></span>
                         <br>
                         <span class="detail-span">Updated : </span>
-                        <span>12 June 2024</span>
+                        <span><?php echo $formattedDate?></span>
                         <br>
-                        <span class="detail-span">First Chap: </span>
-                        <span>Chapter 1</span>
+                        <span class="detail-span">First Chap : </span>
+                        <span>Chapter <?php echo $chapters[0]['name']?></span>
                         <br>
-                        <span class="detail-span">Latest Chap: </span>
-                        <span>Chapter 19</span>
+                        <span class="detail-span">Latest Chap : </span>
+                        <span>Chapter <?php echo $chapters[count($chapters)-1]['name']?></span>
                     </div>
                 </div>
                 <br>
@@ -56,8 +73,7 @@ require('layout/header.php');
                             SYNOPSIS
                         </div>
                         <div class="synopsis-detail" id="col2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, suscipit alias quam modi ab vero voluptates repellat. Illum deserunt laudantium reprehenderit, neque repellendus modi dignissimos fugit ratione laboriosam hic quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam tenetur ratione officiis libero architecto minima voluptas inventore fugiat optio omnis laborum placeat dignissimos quibusdam fugit nihil, mollitia beatae dolor asperiores?
+                            <?php echo $manga['synopsis'];?>
                         </div>
                     </div>
                 </div>
@@ -69,7 +85,15 @@ require('layout/header.php');
                 <h5>CHAPTERS</h5>
             </div>
             <div class="chapter-view-list">
-                <p>Chapter 1<span>12 June 2024</span></p>
+                <?php
+                foreach(array_reverse($chapters) as $chapter) {
+                    $date = new DateTime($chapter['created_date']);
+                    $formattedDate = $date->format('d F Y');
+                    echo '<a class="chapter-anchor" href="read.php?q=';
+                    echo $chapter['secure_id'];
+                    echo '"><p>Chapter '.$chapter['name'].'<span>'.$formattedDate.'</span></p></a>';
+                }
+                ?>
             </div>
         </div>
         <?php

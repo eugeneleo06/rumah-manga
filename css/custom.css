@@ -160,7 +160,7 @@ footer p {
 
 .card-container {
     margin-top: 3vh;
-    margin-bottom: 9vh;
+    margin-bottom: 7vh;
     display: flex;
     justify-content: space-between;
     gap: 20px; /* Space between cards */
@@ -174,6 +174,11 @@ footer p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
+
+.card:hover {
+    cursor: pointer;
+}
+
 .card img {
     width: 100%;
     height: 100%;
@@ -223,6 +228,10 @@ footer p {
     height: auto;
 }
 
+.action-card:hover img {
+    opacity: 0.7;
+}
+
 .chapter-list {
     width: 100%;
 }
@@ -256,7 +265,8 @@ footer p {
 }
 
 .view-container {
-    margin-top: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 .view-img-wrapper {
@@ -284,7 +294,7 @@ footer p {
     color: white;
     font-size: 20px;
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -310,7 +320,7 @@ footer p {
 
 .detail-span {
     display: inline-block;
-    width: 150px;
+    width: 125px;
 }
 
 .synopsis-container {
@@ -424,6 +434,23 @@ footer p {
     font-size: 1.3em;
 }
 
+.chapter-anchor {
+    color: inherit;
+    text-decoration: none!important;
+}
+
+.chapter-ancor:hover {
+    text-decoration: none!important;
+}
+
+.read-title a {
+    color: inherit;
+    text-decoration: none!important;
+}
+
+.read-title a:hover {
+    text-decoration: none!important;
+}
 
 @media (min-width: 991px) {
     .nav-button a{
@@ -441,6 +468,9 @@ footer p {
     }
     .search-btn{
         margin-top: 0!important;
+    }
+    .nav-link {
+        padding-left: 2vw!important;
     }
 }
 
