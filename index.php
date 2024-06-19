@@ -14,8 +14,8 @@ require('layout/header.php');
 
             <div class="marquee-container">
                 <div class="marquee">
-                    <img src="https://via.placeholder.com/2000x100" alt="Marquee Image">
-                    <img src="https://via.placeholder.com/2000x100" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
@@ -46,18 +46,25 @@ require('layout/header.php');
             <div class="title-container">
                 <h1>ACTION MANGA</h1>
             </div>
-            <div class="row action-row align-items-center">
+            <div class="row action-row no-gutters">
                 <?php
-                    foreach($mangas_action as $v) {
-                        echo '<div class="col-md-3 col-6 pt-3">';
-                        echo '<div class="card action-card" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
+                    foreach($mangas_action as $i=>$v) {
+                        echo '<div class="col-md-3 col-6 mt-3">';
+                        echo '<div class="card action-card';
+                        if ($i+1 & 1) {
+                            echo ' action-card-left';
+                        }
+                        echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '</div>';
                         echo '</div>';
-                        echo '<div class="col-md-3 col-6 pt-3">';
-                        echo '<p class="action-p">';
-                        echo '<span class="title-latest">'.$v['title'].'</span>';
-                        echo '<br>';
+                        echo '<div class="col-md-3 col-6 mt-3 desc-card';
+                        if (!($i+1 & 1)) {
+                            echo ' action-p-right';
+                        }
+                        echo '">';
+                        echo '<h5 class="title-latest">'.$v['title'].'</h5>';
+                        echo '<p>';
                         echo $v['author_name'];
                         echo '<br>';
                         echo ucfirst(strtolower($v['status']));

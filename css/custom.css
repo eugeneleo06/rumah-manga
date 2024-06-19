@@ -16,9 +16,10 @@ main {
 }
 
 body {
+    background-color: #ffffff;
     opacity: 1;
-    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#e9e9e9 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #e9e9e9 2px, #ffffff 2px) -1px 0;
-    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #d5d5d5 0, #d5d5d5 1px, #ffffff 0, #ffffff 50%);
 }
 
 footer {
@@ -103,7 +104,7 @@ footer p {
 }
 .marquee {
     display: flex;
-    animation: marquee 5s linear infinite;
+    animation: marquee 30s linear infinite;
     white-space: nowrap;
 }
 .marquee img {
@@ -226,6 +227,14 @@ footer p {
 .action-card{
     width: auto;
     height: auto;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.action-card img {
+    width: auto;
+    height: 45vh;
 }
 
 .action-card:hover img {
@@ -431,7 +440,8 @@ footer p {
 }
 
 .action-p {
-    font-size: 1.3em;
+    margin-left: 0.5vw;
+    font-size: 1em;
 }
 
 .chapter-anchor {
@@ -496,6 +506,42 @@ footer p {
     border-radius: 2px;
 }
 
+.minimize-icn {
+    color: gold!important;
+    cursor: pointer;
+}
+
+.minimize-icn:hover {
+    color: black!important;
+}
+
+.desc-card {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding-left: 1vw!important;
+    padding-top:1vh!important;
+}
+
+.action-card-left {
+    border-radius: 10px 0 0 10px;
+}
+
+.action-p-right {
+    border-radius: 0 10px 10px 0;
+}
+
+.btn-search {
+    background-color: gold;
+    color: black;
+    font-style: normal;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-search:hover {
+    background-color: goldenrod;
+}
+
 @media (min-width: 991px) {
     .nav-button a{
         margin-left:2vw;
@@ -515,6 +561,18 @@ footer p {
     }
     .nav-link {
         padding-left: 2vw!important;
+    }
+
+    .action-card {
+        border-radius: 10px 0 0 10px!important;
+    }
+
+    .desc-card {
+        border-radius: 0 10px 10px 0!important;
+    }
+
+    .action-p {
+        padding-right: 0.5vw;
     }
 }
 

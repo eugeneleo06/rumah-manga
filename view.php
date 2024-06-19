@@ -24,8 +24,8 @@ $formattedDate = $date->format('d F Y');
 
             <div class="marquee-container">
                 <div class="marquee">
-                    <img src="https://via.placeholder.com/2000x100" alt="Marquee Image">
-                    <img src="https://via.placeholder.com/2000x100" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
