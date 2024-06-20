@@ -103,6 +103,8 @@ footer p {
     border-radius: 5px; 
 }
 .marquee {
+    width: 25%;
+    height: auto;
     display: flex;
     animation: marquee 30s linear infinite;
     white-space: nowrap;
@@ -541,6 +543,39 @@ footer p {
 
 .btn-search:hover {
     background-color: goldenrod;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: gold;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#dark-toggle {
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    background-color: rgb(211, 180, 2);
+}
+
+.navbar.dark-mode {
+    background-color: #E6E6E6!important;
+}
+
+body.dark-mode{
+    background-color: #626262;
+    background-image: repeating-linear-gradient(45deg, #818181 0, #818181 1px, #626262 0, #626262 50%);
 }
 
 @media (min-width: 991px) {

@@ -169,6 +169,14 @@ require('layout/header.php');
                 <div class="marquee">
                     <img src="img/marquee.png" alt="Marquee Image">
                     <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
@@ -319,7 +327,7 @@ require('layout/header.php');
                         if ($i+1 & 1) {
                             echo ' action-card-left';
                         }
-                        echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
+                        echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'#headline\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '</div>';
                         echo '</div>';
@@ -419,26 +427,39 @@ require('layout/header.php');
                 }
             }
 
-            $(document).ready(function() {
-                // Retrieve the collapse state from local storage
-                if (localStorage.getItem('collapseState') === 'true') {
+            function toggleIcon(isCollapsed) {
+                if (isCollapsed) {
+                    $('.minimize-icn').removeClass('fa-plus').addClass('fa-minus');
+                } else {
+                    $('.minimize-icn').removeClass('fa-minus').addClass('fa-plus');
+                }
+            }
+
+            // Retrieve the collapse state from local storage
+            if (localStorage.getItem('collapseState') === 'true') {
                 $('#dropdownContainer').addClass('show');
                 $('.minimize-icn').attr('aria-expanded', 'true');
-                } else {
+                toggleIcon(true);
+            } else {
                 $('#dropdownContainer').removeClass('show');
                 $('.minimize-icn').attr('aria-expanded', 'false');
-                }
+                toggleIcon(false);
+            }
 
-                // Listen for collapse events to save the state
-                $('#dropdownContainer').on('shown.bs.collapse', function () {
+            // Listen for collapse events to save the state and toggle icon
+            $('#dropdownContainer').on('shown.bs.collapse', function () {
                 localStorage.setItem('collapseState', 'true');
                 $('.minimize-icn').attr('aria-expanded', 'true');
-                });
+                toggleIcon(true);
+            });
 
-                $('#dropdownContainer').on('hidden.bs.collapse', function () {
+            $('#dropdownContainer').on('hidden.bs.collapse', function () {
                 localStorage.setItem('collapseState', 'false');
                 $('.minimize-icn').attr('aria-expanded', 'false');
-                });
+                toggleIcon(false);
             });
+
+            // Initial icon state
+            toggleIcon($('#dropdownContainer').hasClass('show'));
         </script>
     </div>

@@ -28,7 +28,7 @@
         </form>
         <div class="theme-toggle">
             THEME&nbsp;&nbsp;
-            <i class="fas fa-toggle-off fa-2x" style="color:white"></i>
+            <i id="dark-toggle" class="fas fa-toggle-off fa-2x" style="color:white"></i>
         </div>
     </nav>
 </header>

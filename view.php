@@ -26,11 +26,19 @@ $formattedDate = $date->format('d F Y');
                 <div class="marquee">
                     <img src="img/marquee.png" alt="Marquee Image">
                     <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
 
-        <div class="view-container">
+        <div class="view-container" id="headline">
             <div class="view-img-wrapper">
                 <img src="<?php echo $manga['headline_img'];?>" class="w-100 view-img">
                 <div class="overlay">

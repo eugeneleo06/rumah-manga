@@ -56,7 +56,7 @@ require('layout/header.php');
                 </div>     
             </div>
             <div class="title-container" style="margin-top:0%;">
-                <h1 class="read-title"><a href="view.php?q=<?php echo $manga['secure_id']?>"><?php echo $manga['title']?></a></h1>
+                <h1 class="read-title"><a href="view.php?q=<?php echo $manga['secure_id']?>#headline"><?php echo $manga['title']?></a></h1>
             </div>
         </div>
 

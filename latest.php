@@ -23,6 +23,14 @@ require('layout/header.php');
                 <div class="marquee">
                     <img src="img/marquee.png" alt="Marquee Image">
                     <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
@@ -36,7 +44,7 @@ require('layout/header.php');
                         if ($i+1 & 1) {
                             echo ' action-card-left';
                         }
-                        echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'\';">';
+                        echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'#headline\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '</div>';
                         echo '</div>';
