@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $offsetQuery = "";
         $status = 1;
         $order = 1;
+        $page = 1;
 
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -107,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         } else if ($order == 2) { 
             $orderQuery = " m.created_date DESC";
         } else if ($order == 3) {
-            $orderQuery = " m.name ASC";
+            $orderQuery = " m.title ASC";
         }
 
         $sql = "SELECT *, m.secure_id as secure_id, a.name as author_name, COALESCE(c.name, '-') AS latest_chapter_name FROM mangas m 
@@ -126,6 +127,31 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $mangas = $stmt->fetchAll();
+
+        $sql = "SELECT COUNT(*) FROM mangas m 
+        LEFT JOIN authors a ON a.id = m.author_id 
+        LEFT JOIN (
+           SELECT c1.manga_id, c1.name
+           FROM chapters c1
+           INNER JOIN (
+                   SELECT manga_id, MAX(created_date) AS latest_created_date
+                   FROM chapters
+                   GROUP BY manga_id
+               ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
+           ) c ON m.id = c.manga_id  
+        WHERE 1 = 1 ".$whereQuery." ORDER BY ".$orderQuery;
+       
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $totalRecords = $stmt->fetchColumn();
+
+        $totalPages = ceil($totalRecords / $pageSize);
+
+        $sql = "SELECT * FROM genres";
+       
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $genres = $stmt->fetchAll();
 
     } catch(PDOException $e){
         echo "Connection failed: " . $e->getMessage();
@@ -165,41 +191,113 @@ require('layout/header.php');
                             <div class="col-12 col-md-12">
                                 <label>Genres:</label>
                                 <div class="filter d-flex flex-wrap">
-                                    <div class="filter-item btn btn-outline-secondary mr-2" onclick="toggleFilter(this)" data-filter="action">
-                                        <i class="fas fa-circle"></i> Action
-                                    </div>
-                                    <div class="filter-item btn btn-outline-secondary mr-2" onclick="toggleFilter(this)" data-filter="adventure">
-                                        <i class="fas fa-circle"></i> Adventure
-                                    </div>
-                                    <div class="filter-item btn btn-outline-secondary mr-2" onclick="toggleFilter(this)" data-filter="comedy">
-                                        <i class="fas fa-circle"></i> Comedy
-                                    </div>
-                                    <!-- Add more filter items as needed -->
+                                    <?php
+                                        foreach($genres as $genre) {
+                                            echo '<div class="filter-item btn btn-outline-secondary mr-2 ';
+                                            if (isset($_GET['filters'][$genre['name']])) {
+                                                $filter = $_GET['filters'][$genre['name']];
+                                                if ($filter == 'excluded') {
+                                                    echo 'excluded';
+                                                } else if ($filter == 'included') {
+                                                    echo 'included';
+                                                }
+                                            }
+                                            echo '" onclick="toggleFilter(this)" data-filter="';
+                                            echo $genre['name'];
+                                            echo '">';
+                                            echo '<i class="fas ';
+                                            if (isset($_GET['filters'][$genre['name']])) {
+                                                $filter = $_GET['filters'][$genre['name']];
+                                                if ($filter == "neutral") {
+                                                    echo 'fa-circle';
+                                                } else if ($filter == 'excluded') {
+                                                    echo 'fa-times-circle';
+                                                } else if ($filter == 'included') {
+                                                    echo 'fa-check-circle';
+                                                }
+                                            } else {
+                                                echo 'fa-circle';
+                                            }
+                                            echo '"></i> '. $genre['name'];
+                                            echo '</div>';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 pt-1">
                                 <label>Order by: </label>
                                 <select class="form-control" name="order">
-                                    <option value="1">Latest Updates</option>
-                                    <option value="2">New Manga</option>
-                                    <option value="3">A-Z</option>
+                                    <option value="1" 
+                                    <?php
+                                       if(isset($_GET['order']) && $_GET['order'] == 1) {
+                                        echo 'selected';
+                                       }
+                                    ?>
+                                    >Latest Updates</option>
+                                    <option value="2" 
+                                    <?php
+                                       if(isset($_GET['order']) && $_GET['order'] == 2) {
+                                        echo 'selected';
+                                       }
+                                    ?>
+                                    >New Manga</option>
+                                    <option value="3" 
+                                    <?php
+                                       if(isset($_GET['order']) && $_GET['order'] == 3) {
+                                        echo 'selected';
+                                       }
+                                    ?>
+                                    >A-Z</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-6 pt-1">
                                 <label>Status:</label>
                                 <select class="form-control" name="status">
-                                    <option value="1">Ongoing and Complete</option>
-                                    <option value="2">Ongoing</option>
-                                    <option value="3">Complete</option>
+                                    <option value="1" 
+                                    <?php
+                                       if(isset($_GET['status']) && $_GET['status'] == 1) {
+                                        echo 'selected';
+                                       }
+                                    ?>
+                                    >Ongoing and Complete</option>
+                                    <option value="2" 
+                                    <?php
+                                       if(isset($_GET['status']) && $_GET['status'] == 2) {
+                                        echo 'selected';
+                                       }
+                                    ?>
+                                    >Ongoing</option>
+                                    <option value="3" 
+                                    <?php
+                                       if(isset($_GET['status']) && $_GET['status'] == 3) {
+                                        echo 'selected';
+                                       }
+                                    ?>
+                                    >Complete</option>
                                 </select>
                             </div>
                             <div class="col-12 pt-1">
                                 <label>Search:</label>
-                                <input type="text" class="form-control" name="search">
+                                <input type="text" class="form-control" name="search" value="<?php
+                                    if (isset($_GET['search'])) {
+                                        echo $_GET['search'];
+                                    }
+                                ?>">
                             </div>
-                                <input type="hidden" name="filters[action]" id="filter-action" value="neutral">
-                                <input type="hidden" name="filters[adventure]" id="filter-adventure" value="neutral">
-                                <input type="hidden" name="filters[comedy]" id="filter-comedy" value="neutral">
+                            <?php
+                                foreach($genres as $genre) { 
+                                    echo '<input type="hidden" name="filters['.$genre['name'].']" id="filter-'.$genre['name'].'" value="';
+                                    if (isset($_GET['filters'][$genre['name']])) {
+                                        $filter = $_GET['filters'][$genre['name']];
+                                        echo $filter;
+                                    } else {
+                                        echo 'neutral';
+                                    }
+                                    echo '">';
+                                }
+
+                            ?>
+                            <input type="hidden" name="page" value="1">
                             <div class="col-12 pt-4">
                                 <input type="submit" class="btn btn-success btn-search w-100" value="SEARCH">
                             </div>
@@ -242,13 +340,64 @@ require('layout/header.php');
                     }
                 ?>
             </div>
+            <div class="row flex align-items-center">
+                <div class="col-12 col-md-2 offset-md-10">
+                <?php
+                    echo '<nav class="pg-nav">';
+                    echo '<ul class="pagination">';
+
+                    $range = 3; // Number of pages to show around the current page
+
+                    // Previous button
+                    if ($page > 1) {
+                        echo '<li class="page-item page-navigator"><a class="page-link" href="' . addOrUpdateQueryParam('page', $page - 1) . '">Previous</a></li>';
+                    } else {
+                        echo '<li class="page-item page-navigator disabled"><a class="page-link">Prev</a></li>';
+                    }
+
+                    // Page buttons
+                    $start = max(1, $page - $range);
+                    $end = min($totalPages, $page + $range);
+
+                    if ($start > 1) {
+                        echo '<li class="page-item page-num"><a class="page-link" href="' . addOrUpdateQueryParam('page', 1) . '">1</a></li>';
+                        if ($start > 2) {
+                            echo '<li class="page-item page-num disabled"><a class="page-link">...</a></li>';
+                        }
+                    }
+
+                    for ($i = $start; $i <= $end; $i++) {
+                        if ($i == $page) {
+                            echo '<li class="page-item page-num active"><a class="page-link" href="' . addOrUpdateQueryParam('page', $i) . '">' . $i . '</a></li>';
+                        } else {
+                            echo '<li class="page-item page-num"><a class="page-link" href="' . addOrUpdateQueryParam('page', $i) . '">' . $i . '</a></li>';
+                        }
+                    }
+
+                    if ($end < $totalPages) {
+                        if ($end < $totalPages - 1) {
+                            echo '<li class="page-item page-num disabled"><a class="page-link">...</a></li>';
+                        }
+                        echo '<li class="page-item page-num"><a class="page-link" href="' . addOrUpdateQueryParam('page', $totalPages) . '">' . $totalPages . '</a></li>';
+                    }
+
+                    // Next button
+                    if ($page < $totalPages) {
+                        echo '<li class="page-item page-navigator"><a class="page-link" href="' . addOrUpdateQueryParam('page', $page + 1) . '">Next</a></li>';
+                    } else {
+                        echo '<li class="page-item page-navigator disabled"><a class="page-link">Next</a></li>';
+                    }
+
+                    echo '</ul>';
+                    echo '</nav>';
+                ?>
+                </div>
+            </div>
         </div>
 
         <?php
         require('layout/footer.php');
         ?>
-
-        <a href="<?php echo addOrUpdateQueryParam('page',1)?>">sda</a>
         <script>
            function toggleFilter(element) {
                 const filterName = element.getAttribute('data-filter');
@@ -269,5 +418,27 @@ require('layout/header.php');
                     hiddenInput.value = 'included';
                 }
             }
+
+            $(document).ready(function() {
+                // Retrieve the collapse state from local storage
+                if (localStorage.getItem('collapseState') === 'true') {
+                $('#dropdownContainer').addClass('show');
+                $('.minimize-icn').attr('aria-expanded', 'true');
+                } else {
+                $('#dropdownContainer').removeClass('show');
+                $('.minimize-icn').attr('aria-expanded', 'false');
+                }
+
+                // Listen for collapse events to save the state
+                $('#dropdownContainer').on('shown.bs.collapse', function () {
+                localStorage.setItem('collapseState', 'true');
+                $('.minimize-icn').attr('aria-expanded', 'true');
+                });
+
+                $('#dropdownContainer').on('hidden.bs.collapse', function () {
+                localStorage.setItem('collapseState', 'false');
+                $('.minimize-icn').attr('aria-expanded', 'false');
+                });
+            });
         </script>
     </div>

@@ -62,7 +62,9 @@ require('layout/header.php');
                 <?php
                     echo '<nav class="pg-nav">';
                     echo '<ul class="pagination">';
-                    
+
+                    $range = 3; // Number of pages to show around the current page
+
                     // Previous button
                     if ($page > 1) {
                         echo '<li class="page-item page-navigator"><a class="page-link" href="?page=' . ($page - 1) . '">Previous</a></li>';
@@ -71,12 +73,29 @@ require('layout/header.php');
                     }
 
                     // Page buttons
-                    for ($i = 1; $i <= $totalPages; $i++) {
+                    $start = max(1, $page - $range);
+                    $end = min($totalPages, $page + $range);
+
+                    if ($start > 1) {
+                        echo '<li class="page-item page-num"><a class="page-link" href="?page=1">1</a></li>';
+                        if ($start > 2) {
+                            echo '<li class="page-item page-num disabled"><a class="page-link">...</a></li>';
+                        }
+                    }
+
+                    for ($i = $start; $i <= $end; $i++) {
                         if ($i == $page) {
                             echo '<li class="page-item page-num active"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
                         } else {
                             echo '<li class="page-item page-num"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
                         }
+                    }
+
+                    if ($end < $totalPages) {
+                        if ($end < $totalPages - 1) {
+                            echo '<li class="page-item page-num disabled"><a class="page-link">...</a></li>';
+                        }
+                        echo '<li class="page-item page-num"><a class="page-link" href="?page=' . $totalPages . '">' . $totalPages . '</a></li>';
                     }
 
                     // Next button

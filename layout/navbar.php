@@ -20,9 +20,9 @@
         </div>
     </nav>
     <nav class="navbar search-nav" style="border-radius:5px;">
-        <form>
+        <form action="search.php" method="GET">
             <div class="form-group form-search">
-                <input type="text" class="form-control" placeholder="Search" style="width:20vw">
+                <input type="text" class="form-control" placeholder="Search" style="width:20vw" name="search">
                 <input type="submit" class="nav-button search-btn" value="SEARCH"></input>
             </div>
         </form>

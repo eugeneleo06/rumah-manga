@@ -416,6 +416,7 @@ footer p {
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 2vh;
 }
 
 .filter-item i {
