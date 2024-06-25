@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try{
         $sql = 'SELECT m.* , a.name as author_name FROM mangas m
         LEFT JOIN authors a ON m.author_id = a.id 
-        ORDER BY modified_date DESC LIMIT 5';
+        ORDER BY modified_date DESC LIMIT 4';
         $stmt = $db->query($sql);
         $mangas_latest = $stmt->fetchAll();
 

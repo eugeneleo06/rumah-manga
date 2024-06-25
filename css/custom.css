@@ -135,6 +135,7 @@ footer p {
 }
 
 .title-container {
+    position: relative;
     background-image: linear-gradient(black,rgb(0, 0, 0));
     color: gold;
     border-radius: 5px;
@@ -576,6 +577,32 @@ footer p {
 body.dark-mode{
     background-color: #626262;
     background-image: repeating-linear-gradient(45deg, #818181 0, #818181 1px, #626262 0, #626262 50%);
+}
+
+.sticker {
+    position: absolute;
+    top: -35px;
+    left: -40px;
+    z-index: 1;
+    width: 75px; /* Adjust width and height as per your GIF */
+    height: 75px;
+}
+
+.fade-left {
+    transform: translateX(-50%);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+}
+
+.fade-right {
+    transform: translateX(50%);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 @media (min-width: 991px) {

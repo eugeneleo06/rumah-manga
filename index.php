@@ -30,12 +30,13 @@ require('layout/header.php');
 
         <div class="container">
             <div class="title-container">
+                <img src="img/shigure-ui-dance.gif" class="sticker" alt="Animated Sticker">
                 <h1>LATEST UPDATES</h1>
             </div>
             <div class="card-container">
                 <?php 
                     foreach($mangas_latest as $v) {
-                        echo '<div class="card" onclick="location.href=\'view.php?q='.$v['secure_id'].'#headline\';">';
+                        echo '<div class="card" onclick="location.href=\'view.php?q='.$v['secure_id'].'#col1\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '<div class="description">';
                         echo '<p>';
@@ -83,8 +84,42 @@ require('layout/header.php');
                     }
                 ?>
             </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 fade-left">
+                        <img src="img/example-page.jpg" class="img-fluid" alt="Left Image">
+                    </div>
+                    <div class="col-md-6 fade-right">
+                        <img src="img/example-page-2.jpg" class="img-fluid" alt="Right Image">
+                    </div>
+                </div>
+            </div>
+
         </div>
         <?php
         require('layout/footer.php');
         ?>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const fadeLeft = document.querySelector('.fade-left');
+        const fadeRight = document.querySelector('.fade-right');
+        
+        function checkScroll() {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            const fadeLeftTop = fadeLeft.getBoundingClientRect().top;
+            const fadeRightTop = fadeRight.getBoundingClientRect().top;
+            
+            if (fadeLeftTop < triggerBottom) {
+            fadeLeft.classList.add('fade-in');
+            }
+            
+            if (fadeRightTop < triggerBottom) {
+            fadeRight.classList.add('fade-in');
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        });
+    </script>
