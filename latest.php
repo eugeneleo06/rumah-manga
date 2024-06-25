@@ -53,6 +53,8 @@ require('layout/header.php');
                             echo ' action-p-right';
                         }
                         echo '">';
+                        echo '<div class="desc-div">';
+                        echo '<div>';
                         echo '<h5 class="title-latest">'.$v['title'].'</h5>';
                         echo '<p>';
                         echo $v['author_name'];
@@ -61,6 +63,8 @@ require('layout/header.php');
                         echo '<br>';
                         echo 'Latest Chapter : '.$v['latest_chapter_name'];
                         echo '</p>';
+                        echo '</div>';
+                        echo '</div>';                        
                         echo '</div>';
                     }
                 ?>

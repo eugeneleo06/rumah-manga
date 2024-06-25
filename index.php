@@ -30,7 +30,7 @@ require('layout/header.php');
 
         <div class="container">
             <div class="title-container">
-                <img src="img/shigure-ui-dance.gif" class="sticker" alt="Animated Sticker">
+                <img src="img/giphy.webp" class="sticker" alt="Animated Sticker">
                 <h1>LATEST UPDATES</h1>
             </div>
             <div class="card-container">
@@ -72,6 +72,8 @@ require('layout/header.php');
                             echo ' action-p-right';
                         }
                         echo '">';
+                        echo '<div class="desc-div">';
+                        echo '<div>';
                         echo '<h5 class="title-latest">'.$v['title'].'</h5>';
                         echo '<p>';
                         echo $v['author_name'];
@@ -81,17 +83,19 @@ require('layout/header.php');
                         echo 'Latest Chapter : '.$v['latest_chapter_name'];
                         echo '</p>';
                         echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
                     }
                 ?>
             </div>
 
-            <div class="container">
+            <div class="container" style="margin-bottom:3vh">
                 <div class="row">
-                    <div class="col-md-6 fade-left">
-                        <img src="img/example-page.jpg" class="img-fluid" alt="Left Image">
+                    <div class="col-6 fade-left">
+                        <img src="img/left.png" class="img-fluid" alt="Left Image">
                     </div>
-                    <div class="col-md-6 fade-right">
-                        <img src="img/example-page-2.jpg" class="img-fluid" alt="Right Image">
+                    <div class="col-6 fade-right">
+                        <img src="img/right.png" class="img-fluid" alt="Right Image">
                     </div>
                 </div>
             </div>

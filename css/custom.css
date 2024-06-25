@@ -524,6 +524,17 @@ footer p {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     padding-left: 1vw!important;
     padding-top:1vh!important;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; */
+}
+
+.desc-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45vh;
 }
 
 .action-card-left {
@@ -581,10 +592,12 @@ body.dark-mode{
 
 .sticker {
     position: absolute;
-    top: -35px;
-    left: -40px;
+    top: -25px;
+    left: -80px;
+    /* top: -4vh;
+    left: -5vw; */
     z-index: 1;
-    width: 75px; /* Adjust width and height as per your GIF */
+    width: 150px; /* Adjust width and height as per your GIF */
     height: 75px;
 }
 
