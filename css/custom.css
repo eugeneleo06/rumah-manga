@@ -366,6 +366,7 @@ footer p {
     padding-top: 2vh;
     padding-bottom: 2vh;
     margin-bottom: 3vh;
+    position: relative;
 }
 
 .chapter-title h5 {
@@ -408,6 +409,7 @@ footer p {
     background-color: white;
     border: 2px solid black;
     padding: 2vh 2vw !important;
+    margin-bottom: 2vh;
 }
 
 .search-container label {
@@ -593,11 +595,33 @@ body.dark-mode{
 .sticker {
     position: absolute;
     top: -25px;
-    left: -80px;
+    left: -35px;
     /* top: -4vh;
     left: -5vw; */
     z-index: 1;
-    width: 150px; /* Adjust width and height as per your GIF */
+    width: 75px; /* Adjust width and height as per your GIF */
+    height: 75px;
+}
+
+.sticker-2 {
+    position: absolute;
+    top: -40px;
+    right: -35px;
+    /* top: -4vh;
+    left: -5vw; */
+    z-index: 1;
+    width: 75px; /* Adjust width and height as per your GIF */
+    height: 75px;
+}
+
+.sticker-3 {
+    position: absolute;
+    top: -40px;
+    right: -35px;
+    /* top: -4vh;
+    left: -5vw; */
+    z-index: 1;
+    width: 75px; /* Adjust width and height as per your GIF */
     height: 75px;
 }
 

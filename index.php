@@ -30,7 +30,7 @@ require('layout/header.php');
 
         <div class="container">
             <div class="title-container">
-                <img src="img/giphy.webp" class="sticker" alt="Animated Sticker">
+                <img src="img/gif-1.gif" class="sticker" alt="Animated Sticker">
                 <h1>LATEST UPDATES</h1>
             </div>
             <div class="card-container">
@@ -53,6 +53,7 @@ require('layout/header.php');
             </div>
 
             <div class="title-container">
+                <img src="img/gif-2.gif" class="sticker-2" alt="Animated Sticker">
                 <h1>ACTION MANGA</h1>
             </div>
             <div class="row action-row no-gutters">

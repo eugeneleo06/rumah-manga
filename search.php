@@ -317,6 +317,7 @@ require('layout/header.php');
 
         <div class="container view-container">
             <div class="chapter-title">
+                <img src="img/gif-3.gif" class="sticker-2" alt="Animated Sticker">
                 <h5>SEARCH RESULTS</h5>
             </div>
             <div class="row action-row no-gutters">
