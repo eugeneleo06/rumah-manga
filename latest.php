@@ -21,16 +21,16 @@ require('layout/header.php');
 
             <div class="marquee-container">
                 <div class="marquee">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>

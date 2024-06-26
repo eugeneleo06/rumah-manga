@@ -16,7 +16,7 @@
                     <a class="nav-link" href="search.php">MANGA LIST</a>
                 </li>
             </ul>
-            <img src="img/logo.png" width="250" class="nav-img">
+            <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/logo.png" width="250" class="nav-img">
         </div>
     </nav>
     <nav class="navbar search-nav" style="border-radius:5px;">

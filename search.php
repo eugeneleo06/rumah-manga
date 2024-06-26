@@ -167,16 +167,16 @@ require('layout/header.php');
 
             <div class="marquee-container">
                 <div class="marquee">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
@@ -317,7 +317,7 @@ require('layout/header.php');
 
         <div class="container view-container">
             <div class="chapter-title">
-                <img src="img/gif-3.gif" class="sticker-2" alt="Animated Sticker">
+                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/gif-3.gif" class="sticker-2" alt="Animated Sticker">
                 <h5>SEARCH RESULTS</h5>
             </div>
             <div class="row action-row no-gutters">

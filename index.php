@@ -14,23 +14,23 @@ require('layout/header.php');
 
             <div class="marquee-container">
                 <div class="marquee">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
-                    <img src="img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
+                    <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/marquee.png" alt="Marquee Image">
                 </div>
             </div>
         </div>
 
         <div class="container">
             <div class="title-container">
-                <img src="img/gif-1.gif" class="sticker" alt="Animated Sticker">
+                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/gif-1.gif" class="sticker" alt="Animated Sticker">
                 <h1>LATEST UPDATES</h1>
             </div>
             <div class="card-container">
@@ -53,7 +53,7 @@ require('layout/header.php');
             </div>
 
             <div class="title-container">
-                <img src="img/gif-2.gif" class="sticker-2" alt="Animated Sticker">
+                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/gif-2.gif" class="sticker-2" alt="Animated Sticker">
                 <h1>ACTION MANGA</h1>
             </div>
             <div class="row action-row no-gutters">
@@ -93,10 +93,10 @@ require('layout/header.php');
         </div>
         <div class="row">
             <div class="col-6 fade-left">
-                <img src="img/left.png" class="img-fluid" alt="Left Image">
+                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/left.png" class="img-fluid" alt="Left Image">
             </div>
             <div class="col-6 fade-right">
-                <img src="img/right.png" class="img-fluid" alt="Right Image">
+                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/right.png" class="img-fluid" alt="Right Image">
             </div>
         </div>
         <?php
