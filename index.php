@@ -30,7 +30,6 @@ require('layout/header.php');
 
         <div class="container">
             <div class="title-container">
-                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/gif-1.gif" class="sticker" alt="Animated Sticker">
                 <h1>LATEST UPDATES</h1>
             </div>
             <div class="card-container">
@@ -53,7 +52,6 @@ require('layout/header.php');
             </div>
 
             <div class="title-container">
-                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/gif-2.gif" class="sticker-2" alt="Animated Sticker">
                 <h1>ACTION MANGA</h1>
             </div>
             <div class="row action-row no-gutters">
@@ -90,14 +88,6 @@ require('layout/header.php');
                 ?>
             </div>
 
-        </div>
-        <div class="row no-gutters">
-            <div class="col-6 fade-left">
-                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/left.png" class="img-fluid" alt="Left Image">
-            </div>
-            <div class="col-6 fade-right">
-                <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/right.png" class="img-fluid" alt="Right Image">
-            </div>
         </div>
         <?php
         require('layout/footer.php');

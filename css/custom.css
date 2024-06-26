@@ -68,10 +68,10 @@ footer p {
 
 
 .search-nav {
-    background-color: black;
     display: flex;
-    padding-top: 4vh;
-    padding-bottom: 4vh;
+    padding-top: 1.5vh;
+    padding-bottom: 3vh;
+    border-radius: 0px 0px 5px 5px!important;
 }
 
 .form-search {
@@ -86,6 +86,7 @@ footer p {
     margin-left: 1vw;
     padding-left: 2vw;
     padding-right: 2vw;
+    border: none;
 }
 
 .theme-toggle{
@@ -215,12 +216,24 @@ footer p {
     opacity: 1;
 }
 
+.bg-custom-1 {
+    background-image: linear-gradient(gold,rgb(128,108,0))!important;
+    border-radius: 5px 5px 0 0!important;
+    padding-top: 1vh;
+}
+
+.bg-custom-2 {
+    background-image: linear-gradient(rgb(128,108,0), black)!important;
+}
+
 .nav-shadow {
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-img {
-    margin-bottom: 2vh;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 175px;
 }
 
 .action-row {
@@ -590,39 +603,6 @@ footer p {
 body.dark-mode{
     background-color: #626262;
     background-image: repeating-linear-gradient(45deg, #818181 0, #818181 1px, #626262 0, #626262 50%);
-}
-
-.sticker {
-    position: absolute;
-    top: -25px;
-    left: -35px;
-    /* top: -4vh;
-    left: -5vw; */
-    z-index: 1;
-    width: 75px; /* Adjust width and height as per your GIF */
-    height: 75px;
-}
-
-.sticker-2 {
-    position: absolute;
-    top: -40px;
-    right: -35px;
-    /* top: -4vh;
-    left: -5vw; */
-    z-index: 1;
-    width: 75px; /* Adjust width and height as per your GIF */
-    height: 75px;
-}
-
-.sticker-3 {
-    position: absolute;
-    top: -40px;
-    right: -35px;
-    /* top: -4vh;
-    left: -5vw; */
-    z-index: 1;
-    width: 75px; /* Adjust width and height as per your GIF */
-    height: 75px;
 }
 
 .fade-left {
