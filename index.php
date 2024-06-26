@@ -58,7 +58,7 @@ require('layout/header.php');
             <div class="row action-row no-gutters">
                 <?php
                     foreach($mangas_action as $i=>$v) {
-                        echo '<div class="col-md-3 col-6 mt-3">';
+                        echo '<div class="col-md-3 col-6 mb-3">';
                         echo '<div class="card action-card';
                         if ($i+1 & 1) {
                             echo ' action-card-left';
@@ -67,7 +67,7 @@ require('layout/header.php');
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '</div>';
                         echo '</div>';
-                        echo '<div class="col-md-3 col-6 mt-3 desc-card';
+                        echo '<div class="col-md-3 col-6 mb-3 desc-card';
                         if (!($i+1 & 1)) {
                             echo ' action-p-right';
                         }

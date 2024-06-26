@@ -140,6 +140,7 @@ footer p {
     color: gold;
     border-radius: 5px;
     margin-top: 4vh;
+    margin-bottom: 3vh;
     padding-top: 4vh;
     padding-bottom: 4vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -163,7 +164,6 @@ footer p {
 }
 
 .card-container {
-    margin-top: 3vh;
     margin-bottom: 7vh;
     display: flex;
     justify-content: space-between;
@@ -365,6 +365,7 @@ footer p {
     margin-top: 1vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
+    margin-bottom: 3vh;
 }
 
 .chapter-title h5 {
@@ -523,7 +524,6 @@ footer p {
     background-color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     padding-left: 1vw!important;
-    padding-top:1vh!important;
     /* display: flex;
     flex-direction: column;
     justify-content: center;
