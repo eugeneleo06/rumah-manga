@@ -90,17 +90,14 @@ require('layout/header.php');
                 ?>
             </div>
 
-            <div class="container" style="margin-bottom:3vh">
-                <div class="row">
-                    <div class="col-6 fade-left">
-                        <img src="img/left.png" class="img-fluid" alt="Left Image">
-                    </div>
-                    <div class="col-6 fade-right">
-                        <img src="img/right.png" class="img-fluid" alt="Right Image">
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-6 fade-left">
+                <img src="img/left.png" class="img-fluid" alt="Left Image">
             </div>
-
+            <div class="col-6 fade-right">
+                <img src="img/right.png" class="img-fluid" alt="Right Image">
+            </div>
         </div>
         <?php
         require('layout/footer.php');
