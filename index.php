@@ -91,7 +91,7 @@ require('layout/header.php');
             </div>
 
         </div>
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-6 fade-left">
                 <img src="https://pub-4c611765f21e41988e62321652b5623f.r2.dev/img/left.png" class="img-fluid" alt="Left Image">
             </div>
