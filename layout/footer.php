@@ -1,3 +1,13 @@
+<?php require 'api/get_footer.php'; ?>
+<div class="marquee-footer-container">
+    <div class="marquee">
+        <?php 
+        for ($i = 0; $i < 11; $i++) {
+            echo '<img src="'.$ads['img_url'].'" alt="Marquee Image">';
+        }
+        ?>
+    </div>
+</div>
 <button id="back-to-top" class="back-to-top">
     <i class="fas fa-arrow-up"></i>
 </button>

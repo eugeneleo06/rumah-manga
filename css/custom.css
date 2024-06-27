@@ -103,6 +103,7 @@ footer p {
     color: white!important;
     font-weight: 700;
 }
+
 .marquee-container {
     width: 100%;
     margin-top: 3vh;
@@ -111,6 +112,16 @@ footer p {
     white-space: nowrap;
     border-radius: 5px; 
 }
+
+.marquee-footer-container {
+    width: 100%;
+    margin-bottom: 3vh;
+    overflow: hidden;
+    background-color: #ffffff;
+    white-space: nowrap;
+    border-radius: 5px; 
+}
+
 .marquee {
     width: 25%;
     height: auto;
@@ -628,6 +639,15 @@ body.dark-mode{
 .fade-in {
     opacity: 1;
     transform: translateX(0);
+}
+
+.ads-img {
+    border-radius: 5px;
+    margin-bottom:4vh
+}
+
+.ads-img:hover {
+    cursor: pointer!important;
 }
 
 @media (min-width: 991px) {

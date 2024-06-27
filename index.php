@@ -89,6 +89,19 @@ require('layout/header.php');
             </div>
 
         </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <?php
+                foreach($ads as $ad) { 
+                    
+                    echo '<div class="col-4">';
+                    echo '<img src="'.$ad['img_url'].'" class="w-100 ads-img" onclick="location.href=\''.$ad['url'].'\'">';
+                    echo '</div>';
+                }
+                ?>
+            </div>
+        </div>
         <?php
         require('layout/footer.php');
         ?>
