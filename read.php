@@ -63,7 +63,10 @@ require('layout/header.php');
         <div class="read-section" id="read-section">
             <?php 
                 $imgs = json_decode($chapter['img_url']);
-                foreach ($imgs as $img) {
+                foreach ($imgs as $i=>$img) {
+                    if ($i == round(count($imgs)/2)) {
+                        echo '<img class="ads-img-read" src="'.$manga['ads_img'].'"onclick="location.href=\''.$manga['ads_url'].'\'">';
+                    }
                     echo '<img src="'.$img.'">';
                 }
             ?>
