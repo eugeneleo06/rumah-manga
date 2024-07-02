@@ -18,8 +18,8 @@ main {
 body {
     background-color: #ffffff;
     opacity: 1;
-    background-size: 10px 10px;
-    background-image: repeating-linear-gradient(45deg, #d5d5d5 0, #d5d5d5 1px, #ffffff 0, #ffffff 50%);
+    /* background-size: 10px 10px; */
+    background-image: url(../img/bg-light.jpg);
 }
 
 footer {
