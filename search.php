@@ -190,7 +190,7 @@ require('layout/header.php');
                         <h5 style="margin-bottom:0">Advanced Search (filters)</h5>
                     </div>
                     <div class="col-1 offset-6 align-self-end">
-                        <i class="fas fa-lg fa-plus minimize-icn" data-toggle="collapse" data-target="#dropdownContainer" aria-expanded="false" aria-controls="dropdownContainer"></i>
+                        <i class="fas fa-lg fa-plus-square minimize-icn" data-toggle="collapse" data-target="#dropdownContainer" aria-expanded="false" aria-controls="dropdownContainer"></i>
                     </div>
                 </div>
                 <div class="collapse mt-3" id="dropdownContainer">
@@ -434,9 +434,9 @@ require('layout/header.php');
 
             function toggleIcon(isCollapsed) {
                 if (isCollapsed) {
-                    $('.minimize-icn').removeClass('fa-plus').addClass('fa-minus');
+                    $('.minimize-icn').removeClass('fa-plus-square').addClass('fa-minus-square');
                 } else {
-                    $('.minimize-icn').removeClass('fa-minus').addClass('fa-plus');
+                    $('.minimize-icn').removeClass('fa-minus-square').addClass('fa-plus-square');
                 }
             }
 
