@@ -156,7 +156,7 @@ footer p {
 
 .title-container {
     position: relative;
-    background-image: linear-gradient(black,rgb(0, 0, 0));
+    background-image: url("../img/cont.png");
     color: gold;
     border-radius: 5px;
     margin-top: 4vh;
@@ -391,7 +391,7 @@ footer p {
 }
 
 .chapter-title {
-    background-image: linear-gradient(black,rgb(0, 0, 0));
+    background-image: url("../img/cont.png");
     color: gold;
     border-radius: 5px 5px 0 0;
     margin-top: 1vh;
@@ -620,8 +620,8 @@ footer p {
 }
 
 body.dark-mode{
-    background-color: #626262;
-    background-image: repeating-linear-gradient(45deg, #818181 0, #818181 1px, #626262 0, #626262 50%);
+    background-color: #272727;
+    background-image: repeating-linear-gradient(45deg, #272727 0, #272727 1px, #383838 0, #383838 50%);
 }
 
 .fade-left {

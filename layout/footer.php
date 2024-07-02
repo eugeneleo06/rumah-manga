@@ -14,7 +14,7 @@
 <footer>
     <div class="footer-head">
     </div>
-    <p>Copyright</p>
+    <p>Copyright &copy; 2024 Rumah Manga</p>
 </footer>
 <script>
         document.addEventListener('DOMContentLoaded', function() {
