@@ -620,8 +620,8 @@ footer p {
 }
 
 body.dark-mode{
-    background-color: #272727;
-    background-image: repeating-linear-gradient(45deg, #272727 0, #272727 1px, #383838 0, #383838 50%);
+    background-image: url('../img/bg-dark.jpg');
+    background-size: cover;
 }
 
 .fade-left {
