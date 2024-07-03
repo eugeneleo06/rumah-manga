@@ -111,7 +111,9 @@ require('layout/header.php');
                 </div>     
             </div>
         </div>
-        <div class="fb-comments" data-href="" data-width="" data-numposts="5"></div>
+        <div class="container" style="background-color: white!important;">
+            <div class="fb-comments" data-href="" data-width="" data-numposts="5"></div>
+        </div>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             var currentURL = window.location.href;
