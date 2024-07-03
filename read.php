@@ -14,6 +14,8 @@ require 'api/get_read.php';
 require('layout/header.php');
 ?>
 <body class="bg-home">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0" nonce="vC1fVnzM"></script>
     <div class="wrapper">
         <div class="container-fluid container-nav">
             <?php require('layout/navbar.php');?>
@@ -108,7 +110,16 @@ require('layout/header.php');
                     </div>
                 </div>     
             </div>
-       </div>
+        </div>
+        <div class="fb-comments" data-href="" data-width="" data-numposts="5"></div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentURL = window.location.href;
+            var fbCommentsDiv = document.querySelector('.fb-comments');
+            fbCommentsDiv.setAttribute('data-href', currentURL);
+            FB.XFBML.parse(); // Reparse the XFBML to update the comments plugin with the new URL
+        });
+        </script>
         <?php
         require('layout/footer.php');
         ?>
