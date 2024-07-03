@@ -112,7 +112,7 @@ require('layout/header.php');
             </div>
         </div>
         <div class="container fb-container">
-            <div class="fb-comments" style="margin-top:20px;" data-href="" data-width="" data-numposts="5"></div>
+            <div class="fb-comments" data-href="" data-width="" data-numposts="5"></div>
         </div>
         <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -657,10 +657,10 @@ body.dark-mode{
 .fb-container {
     background-color: white !important;
     padding: 20px;
-    margin-top: 3vh;
+    margin-top: 4vh;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
-    margin-bottom:3vh
+    margin-bottom:4vh
 }
 
 @media (min-width: 991px) {
