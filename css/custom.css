@@ -660,7 +660,8 @@ body.dark-mode{
     margin-top: 4vh;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
-    margin-bottom:4vh
+    margin-bottom:4vh;
+    text-align:center;
 }
 
 @media (min-width: 991px) {
