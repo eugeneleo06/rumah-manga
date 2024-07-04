@@ -16,7 +16,6 @@ require('layout/header.php');
 $date = new DateTime($manga['modified_date']);
 $formattedDate = $date->format('d F Y');
 
-var_dump($chapters);exit;
 ?>
 
 <body class="bg-home">
