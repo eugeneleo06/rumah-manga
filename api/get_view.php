@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt->bindParam(':secure_id', $secure_id, PDO::PARAM_STR);
         $stmt->execute();
         $manga = $stmt->fetch();
+        var_dump($manga);
 
         # GET GENRE
         $genreIds = json_decode($manga['genres_id']);
