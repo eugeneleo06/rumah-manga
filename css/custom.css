@@ -166,6 +166,10 @@ footer p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+.title-container-top {
+    border-radius: 0 0 5px 5px!important;
+}
+
 .title-container h1 {
     text-align: center;
 }
@@ -181,6 +185,10 @@ footer p {
     padding-top: 4vh;
     padding-bottom: 4vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.page-container-top {
+    border-radius: 5px 5px 0 0 !important;
 }
 
 .card-container {
