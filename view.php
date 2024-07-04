@@ -69,26 +69,22 @@ $formattedDate = $date->format('d F Y');
                         <span><?php echo $formattedDate?></span>
                         <br>
                         <span class="detail-span">First Chap : </span>
-                        <span>Chapter 
                         <?php 
                         if (count($chapters) > 0) {
-                            echo $chapters[0]['name'];
+                            echo '<a href=\'read.php?q='.$chapters[0]['secure_id'].'\'">Chapter '.$chapters[0]['name'].'</a>';
                         } else {
-                            echo '-';
+                            echo '<a>Chapter -</a>';
                         }  
                         ?>
-                        </span>
                         <br>
                         <span class="detail-span">Latest Chap : </span>
-                        <span>Chapter 
                         <?php 
                         if (count($chapters) > 0) {
-                            echo $chapters[count($chapters)-1]['name'];
+                            echo '<a href=\'read.php?q='.$chapters[count($chapters)-1]['secure_id'].'\'">Chapter '.$chapters[count($chapters)-1]['name'].'</a>';
                         } else {
-                            echo '-';
+                            echo '<a>Chapter -</a>';
                         }  
                         ?>
-                        </span>                    
                     </div>
                 </div>
                 <br>

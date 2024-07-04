@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt->execute();
         $manga = $stmt->fetch();
 
-        $sql = 'SELECT * FROM chapters WHERE manga_id = :manga_id ORDER BY created_date DESC';
+        $sql = 'SELECT * FROM chapters WHERE manga_id = :manga_id ORDER BY id DESC';
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':manga_id', $chapter['manga_id'], PDO::PARAM_STR);
         $stmt->execute();

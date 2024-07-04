@@ -370,6 +370,16 @@ footer p {
     font-style: normal;
 }
 
+.detail-container a {
+    font-style: normal;
+    color: black;
+}
+
+.detail-container a:hover{
+    color: gold;
+    text-decoration: none;
+}
+
 .detail-span {
     display: inline-block;
     width: 125px;
@@ -664,7 +674,8 @@ body.dark-mode{
 
 .fb-container {
     background-color: white !important;
-    padding: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
     margin-top: 4vh;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
