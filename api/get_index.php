@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
             ) c ON m.id = c.manga_id
         WHERE JSON_CONTAINS(m.genres_id, '\"".$genreId."\"') 
+        GROUP BY m.id 
         ORDER BY modified_date DESC LIMIT 2 ";
         $stmt = $db->query($sql);
         $mangas_action = $stmt->fetchAll();

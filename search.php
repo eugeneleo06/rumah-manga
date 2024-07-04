@@ -122,13 +122,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     GROUP BY manga_id
                 ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
             ) c ON m.id = c.manga_id  
-         WHERE 1 = 1 ".$whereQuery." ORDER BY ".$orderQuery." LIMIT ".$pageSize." ".$offsetQuery;
+         WHERE 1 = 1 ".$whereQuery." GROUP BY m.id ORDER BY ".$orderQuery." LIMIT ".$pageSize." ".$offsetQuery;
         
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $mangas = $stmt->fetchAll();
 
-        $sql = "SELECT COUNT(*) FROM mangas m 
+        $sql = "SELECT COUNT(DISTINCT m.id) FROM mangas m 
         LEFT JOIN authors a ON a.id = m.author_id 
         LEFT JOIN (
            SELECT c1.manga_id, c1.name

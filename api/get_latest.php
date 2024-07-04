@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     GROUP BY manga_id
                 ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
             ) c ON m.id = c.manga_id
+        GROUP BY m.id 
         ORDER BY modified_date DESC LIMIT 4 ".$query;
         $stmt = $db->prepare($sql);
         $stmt->execute();
