@@ -17,20 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $genreId = $stmt->fetchColumn();
 
         #ACTION
-        $sql = "SELECT m.* , a.name as author_name, COALESCE(c.name, '-') AS latest_chapter_name
-        FROM mangas m
+        $sql = "SELECT m.* , a.name as author_name, COALESCE(
+                    (SELECT c1.name 
+                    FROM chapters c1 
+                    WHERE c1.manga_id = m.id 
+                    ORDER BY CAST(SUBSTRING_INDEX(c1.name, ' - ', 1) AS UNSIGNED) DESC 
+                    LIMIT 1), 
+                    '-') AS latest_chapter_name 
+        FROM mangas m 
         LEFT JOIN authors a ON m.author_id = a.id 
-        LEFT JOIN (
-            SELECT c1.manga_id, c1.name
-            FROM chapters c1
-            INNER JOIN (
-                    SELECT manga_id, MAX(created_date) AS latest_created_date
-                    FROM chapters
-                    GROUP BY manga_id
-                ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
-            ) c ON m.id = c.manga_id
         WHERE JSON_CONTAINS(m.genres_id, '\"".$genreId."\"') 
-        GROUP BY m.id, a.name, c.name
         ORDER BY modified_date DESC LIMIT 2 ";
         $stmt = $db->query($sql);
         $mangas_action = $stmt->fetchAll();

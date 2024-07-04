@@ -111,18 +111,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $orderQuery = " m.title ASC";
         }
 
-        $sql = "SELECT *, m.secure_id as secure_id, a.name as author_name, COALESCE(c.name, '-') AS latest_chapter_name FROM mangas m 
-         LEFT JOIN authors a ON a.id = m.author_id 
-         LEFT JOIN (
-            SELECT c1.manga_id, c1.name
-            FROM chapters c1
-            INNER JOIN (
-                    SELECT manga_id, MAX(created_date) AS latest_created_date
-                    FROM chapters
-                    GROUP BY manga_id
-                ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
-            ) c ON m.id = c.manga_id  
-         WHERE 1 = 1 ".$whereQuery." GROUP BY m.id, m.secure_id, a.name, c.name ORDER BY ".$orderQuery." LIMIT ".$pageSize." ".$offsetQuery;
+        $sql = "SELECT 
+                m.*, 
+                m.secure_id as secure_id, 
+                a.name as author_name, 
+                COALESCE(
+                    (SELECT c1.name 
+                    FROM chapters c1 
+                    WHERE c1.manga_id = m.id 
+                    ORDER BY CAST(SUBSTRING_INDEX(c1.name, ' - ', 1) AS UNSIGNED) DESC 
+                    LIMIT 1), 
+                    '-') AS latest_chapter_name 
+            FROM 
+                mangas m 
+                LEFT JOIN authors a ON a.id = m.author_id 
+            WHERE 
+                1 = 1 ".$whereQuery." 
+            ORDER BY 
+                ".$orderQuery." 
+            LIMIT 
+                ".$pageSize." 
+                ".$offsetQuery;
         
         $stmt = $db->prepare($sql);
         $stmt->execute();
@@ -139,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                    GROUP BY manga_id
                ) c2 ON c1.manga_id = c2.manga_id AND c1.created_date = c2.latest_created_date
            ) c ON m.id = c.manga_id  
-        WHERE 1 = 1 ".$whereQuery." ORDER BY ".$orderQuery;
+        WHERE 1 = 1 ".$whereQuery;
        
         $stmt = $db->prepare($sql);
         $stmt->execute();
