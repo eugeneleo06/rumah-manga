@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     (SELECT c1.name 
                     FROM chapters c1 
                     WHERE c1.manga_id = m.id 
-                    ORDER BY CAST(SUBSTRING_INDEX(c1.name, ' - ', 1) AS UNSIGNED) DESC 
+                    ORDER BY CAST(SUBSTRING_INDEX(c1.name, ' - ', 1) AS DECIMAL(10,2)) DESC 
                     LIMIT 1), 
                     '-') AS latest_chapter_name 
             FROM 

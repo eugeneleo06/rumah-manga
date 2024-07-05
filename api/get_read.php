@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt->execute();
         $manga = $stmt->fetch();
 
-        $sql = "SELECT * FROM chapters c WHERE manga_id = :manga_id ORDER BY CAST(SUBSTRING_INDEX(c.name, ' - ', 1) AS UNSIGNED) DESC ";
+        $sql = "SELECT * FROM chapters c WHERE manga_id = :manga_id ORDER BY CAST(SUBSTRING_INDEX(c.name, ' - ', 1) AS DECIMAL(10,2)) DESC ";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':manga_id', $chapter['manga_id'], PDO::PARAM_STR);
         $stmt->execute();
