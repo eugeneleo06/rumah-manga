@@ -194,14 +194,8 @@ require('layout/header.php');
 
         <div class="container">
             <div class="search-container">
-                <div class="row">
-                    <div class="col-5">
-                        <h5 style="margin-bottom:0">Advanced Search (filters)</h5>
-                    </div>
-                    <div class="col-1 offset-6 align-self-end">
-                        <i class="fas fa-lg fa-plus-square minimize-icn" data-toggle="collapse" data-target="#dropdownContainer" aria-expanded="false" aria-controls="dropdownContainer"></i>
-                    </div>
-                </div>
+                <h5 style="margin-bottom:0">Advanced Search (filters)</h5>
+                <i class="fas fa-lg fa-plus-square minimize-icn" data-toggle="collapse" data-target="#dropdownContainer" aria-expanded="false" aria-controls="dropdownContainer"></i>
                 <div class="collapse mt-3" id="dropdownContainer">
                     <form action="" method="get">
                         <div class="row">
@@ -328,25 +322,17 @@ require('layout/header.php');
             <div class="chapter-title">
                 <h5>SEARCH RESULTS</h5>
             </div>
-            <div class="row action-row no-gutters">
-            <?php
-                    foreach($mangas as $i=>$v) {
-                        echo '<div class="col-md-3 col-6 mb-3">';
-                        echo '<div class="card action-card';
-                        if ($i+1 & 1) {
-                            echo ' action-card-left';
-                        }
+            <div class="container">
+                <div class="row">
+                    <?php
+                    foreach($mangas as $v) {
+                        echo '<div class="col-6">';
+                        echo '<div class="d-flex justify-content-center align-items-stretch" style="margin-bottom:2vh;">';
+                        echo '<div class="card action-card"';
                         echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'#headline\';">';
                         echo '<img src="'.$v['cover_img'].'">';
                         echo '</div>';
-                        echo '</div>';
-                        echo '<div class="col-md-3 col-6 mb-3 desc-card';
-                        if (!($i+1 & 1)) {
-                            echo ' action-p-right';
-                        }
-                        echo '">';
-                        echo '<div class="desc-div">';
-                        echo '<div>';
+                        echo '<div class="action-desc">';
                         echo '<h5 class="title-latest">'.$v['title'].'</h5>';
                         echo '<p>';
                         echo $v['author_name'];
@@ -358,9 +344,9 @@ require('layout/header.php');
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
-
                     }
-                ?>
+                    ?>
+                </div>
             </div>
             <div class="row flex align-items-center">
                 <div class="col-12 col-md-2 offset-md-10">

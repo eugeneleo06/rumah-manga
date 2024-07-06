@@ -56,35 +56,46 @@ $formattedDate = $date->format('d F Y');
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="col-12 detail-container" id="col1">
-                        <span class="detail-span">Author : </span>
-                        <span><?php echo $manga['author_name']?></span>
-                        <br>
-                        <span class="detail-span">Status : </span>
-                        <span><?php echo ucfirst(strtolower($manga['status']))?></span>
-                        <br>
-                        <span class="detail-span">Genres : </span>
-                        <span><?php echo $manga['genre']?></span>
-                        <br>
-                        <span class="detail-span">Updated : </span>
-                        <span><?php echo $formattedDate?></span>
-                        <br>
-                        <span class="detail-span">First Chap : </span>
-                        <?php 
-                        if (count($chapters) > 0) {
-                            echo '<a href=\'read.php?q='.$chapters[0]['secure_id'].'\'">Chapter '.$chapters[0]['name'].'</a>';
-                        } else {
-                            echo '<a>Chapter -</a>';
-                        }  
-                        ?>
-                        <br>
-                        <span class="detail-span">Latest Chap : </span>
-                        <?php 
-                        if (count($chapters) > 0) {
-                            echo '<a href=\'read.php?q='.$chapters[count($chapters)-1]['secure_id'].'\'">Chapter '.$chapters[count($chapters)-1]['name'].'</a>';
-                        } else {
-                            echo '<a>Chapter -</a>';
-                        }  
-                        ?>
+                        <div class="info-row">
+                            <strong>Author :</strong>
+                            <span class="value-span"><?php echo $manga['author_name']?></span>
+                        </div>  
+                        <div class="info-row">
+                            <strong>Status : </strong>
+                            <span class="value-span"><?php echo ucfirst(strtolower($manga['status']))?></span>
+                        </div>
+                        <div class="info-row">
+                            <strong>Genres : </strong>
+                            <span class="value-span"><?php echo $manga['genre']?></span>
+                        </div>
+                        <div class="info-row">
+                            <strong>Updated : </strong>
+                            <span class="value-span"><?php echo $formattedDate?></span>
+                        </div>
+                        <div class="info-row">
+                            <strong>First Chap : </strong>
+                            <span class="value-span">Chapter 
+                            <?php 
+                                if (count($chapters) > 0) {
+                                    echo $chapters[0]['name'];
+                                } else {
+                                    echo '-';
+                                }  
+                                ?>
+                            </span>
+                        </div>
+                        <div class="info-row">
+                            <strong>Latest Chap : </strong>
+                            <span class="value-span">Chapter 
+                            <?php 
+                                if (count($chapters) > 0) {
+                                    echo $chapters[count($chapters)-1]['name'];
+                                } else {
+                                    echo '-';
+                                }  
+                                ?>
+                            </span>
+                        </div>       
                     </div>
                 </div>
                 <br>
