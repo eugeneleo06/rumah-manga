@@ -58,7 +58,7 @@ require('layout/header.php');
                 <div class="row">
                     <?php
                     foreach($mangas_action as $v) {
-                        echo '<div class="col-6">';
+                        echo '<div class="col-12 col-md-6">';
                         echo '<div class="d-flex justify-content-center align-items-stretch" style="margin-bottom:2vh;">';
                         echo '<div class="card action-card"';
                         echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'#headline\';">';
