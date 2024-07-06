@@ -37,10 +37,13 @@ require('layout/header.php');
 
         <div class="container view-container">
             <div class="container">
+                <div class="chapter-title">
+                    <h5>LATEST MANGA</h5>
+                </div>
                 <div class="row">
                     <?php
                     foreach($mangas as $v) {
-                        echo '<div class="col-6">';
+                        echo '<div class="col-12 col-md-6">';
                         echo '<div class="d-flex justify-content-center align-items-stretch" style="margin-bottom:2vh;">';
                         echo '<div class="card action-card"';
                         echo '" onclick="location.href=\'view.php?q='.$v['secure_id'].'#headline\';">';

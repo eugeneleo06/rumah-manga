@@ -273,7 +273,7 @@ footer p {
     /* object-fit: cover; */
     border-radius: 10px 0 0 10px;
     border: none;
-    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease;
 }
 
@@ -295,6 +295,8 @@ footer p {
     justify-content: center;
     width: 35vh;
     border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
 }
 
 .action-desc p {
