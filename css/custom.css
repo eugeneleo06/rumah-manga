@@ -200,7 +200,7 @@ footer p {
 .card {
     position: relative;
     width: 200px; /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
+    /* height: 200px; Adjust as needed */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -269,12 +269,13 @@ footer p {
 
 .action-card{
     width: 200px!important;
-    height: 200px!important;
+    /* height: 200px!important; */
     /* object-fit: cover; */
     border-radius: 10px 0 0 10px;
     border: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease;
+    min-width: 200px;
 }
 
 .action-container {
@@ -297,6 +298,17 @@ footer p {
     border-radius: 0 10px 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
+}
+
+.action-p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    /* margin-left: 0.5vw; */
+    /* font-size: 1em; */
+    /* font-weight: 200; */
 }
 
 .action-desc p {
@@ -545,11 +557,6 @@ footer p {
     font-style: normal;
 }
 
-.action-p {
-    margin-left: 0.5vw;
-    font-size: 1em;
-}
-
 .chapter-anchor {
     color: inherit;
     text-decoration: none!important;
@@ -777,5 +784,17 @@ body.dark-mode{
 
     .page-container {
         font-size: 2vw;
+    }
+
+    .card {
+        width: 50vw;
+    }
+
+    .action-card {
+        width: 50vw;
+    }
+
+    .card .description {
+        font-size: 0.5em;
     }
 }
