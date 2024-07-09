@@ -268,7 +268,7 @@ footer p {
 }
 
 .action-card{
-    width: 200px!important;
+    width: 200px;
     /* height: 200px!important; */
     /* object-fit: cover; */
     border-radius: 10px 0 0 10px;
@@ -786,12 +786,8 @@ body.dark-mode{
         font-size: 2vw;
     }
 
-    .card {
-        width: 50vw;
-    }
-
     .action-card {
-        width: 50vw;
+        min-width: 40vw;
     }
 
     .card .description {
