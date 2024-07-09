@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $manga['genre'] = $genreNamesCombined;
 
         # GET CHAPTER
-        $sql = 'SELECT * FROM chapters c WHERE c.manga_id = :manga_id ORDER BY created_date ASC';
+        $sql = "SELECT * FROM chapters c WHERE c.manga_id = :manga_id ORDER BY CAST(SUBSTRING_INDEX(c.name, ' - ', 1) AS DECIMAL(10,2)) DESC ";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':manga_id', $manga['manga_id'], PDO::PARAM_STR);
         $stmt->execute();
