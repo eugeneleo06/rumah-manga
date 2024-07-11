@@ -56,7 +56,7 @@ require('layout/header.php');
                         echo '<br>';
                         echo '<span style="font-weight:200;">'.ucfirst(strtolower($v['status'])).'</span>';
                         echo '<br>';
-                        echo 'Latest Chapter : '.$v['latest_chapter_name'];
+                        echo '» Chapter : '.$v['latest_chapter_name'];
                         echo '</p>';
                         echo '</div>';
                         echo '</div>';
