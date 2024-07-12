@@ -132,6 +132,10 @@ require('layout/header.php');
             const totalCards = cards.length;
             let cardsToShow = window.innerWidth > 768 ? 4 : 3; // 4 for desktop, 3 for mobile
             let currentIndex = 0;
+            let startPos = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let dragging = false;
 
             function cloneCards() {
                 for (let i = 0; i < cardsToShow; i++) {
@@ -143,7 +147,7 @@ require('layout/header.php');
             }
 
             function updateCarousel() {
-                const cardWidth = carousel.querySelector('.card').offsetWidth;
+                const cardWidth = carousel.querySelector('.card').offsetWidth + parseInt(window.getComputedStyle(carousel.querySelector('.card')).marginRight) * 2;
                 const offset = -((currentIndex + cardsToShow) * cardWidth);
                 carousel.style.transform = `translateX(${offset}px)`;
             }
@@ -180,6 +184,36 @@ require('layout/header.php');
                 }
             }
 
+            function touchStart(index) {
+                return function(event) {
+                    startPos = getPositionX(event);
+                    dragging = true;
+                    carousel.style.transition = 'none';
+                    currentIndex = index;
+                    prevTranslate = currentTranslate;
+                }
+            }
+
+            function touchMove(event) {
+                if (dragging) {
+                    const currentPosition = getPositionX(event);
+                    currentTranslate = prevTranslate + currentPosition - startPos;
+                    carousel.style.transform = `translateX(${currentTranslate}px)`;
+                }
+            }
+
+            function touchEnd() {
+                dragging = false;
+                carousel.style.transition = 'transform 0.8s ease-in-out';
+                const cardWidth = carousel.querySelector('.card').offsetWidth + parseInt(window.getComputedStyle(carousel.querySelector('.card')).marginRight) * 2;
+                currentIndex = Math.round(-currentTranslate / cardWidth);
+                updateCarousel();
+            }
+
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+
             cloneCards();
             updateCarousel();
 
@@ -193,8 +227,20 @@ require('layout/header.php');
                     updateCarousel();
                 }
             });
-        });
 
+            // Touch events
+            carousel.addEventListener('touchstart', touchStart(currentIndex));
+            carousel.addEventListener('touchmove', touchMove);
+            carousel.addEventListener('touchend', touchEnd);
+
+            // Mouse events
+            carousel.addEventListener('mousedown', touchStart(currentIndex));
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', () => {
+                if (dragging) touchEnd();
+            });
+        });
 
 
     </script>

@@ -776,21 +776,25 @@ body.dark-mode{
 .carousel-container {
     overflow: hidden;
     width: 100%;
+    background-color: rgb(0, 0, 0, 0);
 }
 
 .carousel {
     display: flex;
     transition: transform 0.8s ease-in-out;
+    cursor: grab;
 }
 
 .card {
-    flex: 1 0 25%; /* 25% for 4 items on desktop */
+    flex: 1 0 calc(25% - 12vh); /* Adjusted for 4 items on desktop with margin */
     box-sizing: border-box;
+    margin: 0 6vh; /* Add horizontal margin */
 }
 
 @media (max-width: 768px) {
     .card {
-        flex: 1 0 33.33%; /* 33.33% for 3 items on mobile */
+        flex: 1 0 calc(33.33% - 12vh); /* Adjusted for 3 items on mobile with margin */
+        margin: 0 6vh; /* Add horizontal margin */
     }
 }
 
@@ -804,6 +808,10 @@ body.dark-mode{
 
 .carousel .card {
     box-shadow: none;
+}
+
+.carousel .card {
+    width: 80%!important;
 }
 
 @media (min-width: 991px) {
