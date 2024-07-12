@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         #MANGA LATEST
         $sql = 'SELECT m.* , a.name as author_name FROM mangas m
         LEFT JOIN authors a ON m.author_id = a.id 
-        ORDER BY modified_date DESC LIMIT 4';
+        ORDER BY modified_date DESC LIMIT 10';
         $stmt = $db->query($sql);
         $mangas_latest = $stmt->fetchAll();
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         FROM mangas m 
         LEFT JOIN authors a ON m.author_id = a.id 
         WHERE JSON_CONTAINS(m.genres_id, '\"".$genreId."\"') 
-        ORDER BY modified_date DESC LIMIT 2 ";
+        ORDER BY modified_date DESC LIMIT 10 ";
         $stmt = $db->query($sql);
         $mangas_action = $stmt->fetchAll();
 

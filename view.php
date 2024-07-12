@@ -121,9 +121,9 @@ $formattedDate = $date->format('d F Y');
                 foreach(array_reverse($chapters) as $chapter) {
                     $date = new DateTime($chapter['created_date']);
                     $formattedDate = $date->format('d F Y');
-                    echo '<a class="chapter-anchor" href="read.php?q=';
-                    echo $chapter['secure_id'];
-                    echo '"><p>Chapter '.$chapter['name'].'<span>'.$formattedDate.'</span></p></a>';
+                    echo '<a class="chapter-anchor" href="read.php?q='.$chapter['secure_id']. '">';
+                    echo '<div class="chapter-item"><p>Chapter ' . $chapter['name'] . '</p><span>' . $formattedDate . '</span></div>';
+                    echo '</a>';
                 }
                 ?>
             </div>

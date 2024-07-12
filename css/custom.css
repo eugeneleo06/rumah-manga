@@ -482,6 +482,8 @@ footer p {
     height: 35vh;
     border: 2px solid black;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .chapter-view-list p:hover{
@@ -491,6 +493,34 @@ footer p {
 
 .chapter-view-list span {
     float: right;
+}
+
+
+.chapter-anchor {
+    text-decoration: none;
+}
+
+.chapter-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.chapter-item p {
+    margin: 0;
+    flex: 1;
+    word-break: break-word; /* To ensure long words are broken */
+}
+
+.chapter-item span {
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.chapter-item:hover {
+    color: gold;
+    cursor: pointer!important;
 }
 
 .custom-container-min {
@@ -743,6 +773,39 @@ body.dark-mode{
     margin-left: 20px; /* Adjust the value to set the gutter width */
 }
 
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.card {
+    flex: 1 0 25%; /* 25% for 4 items on desktop */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 0 33.33%; /* 33.33% for 3 items on mobile */
+    }
+}
+
+.card img {
+    width: 100%;
+}
+
+.description {
+    text-align: center;
+}
+
+.carousel .card {
+    box-shadow: none;
+}
+
 @media (min-width: 991px) {
     .nav-button a{
         margin-left:2vw;
@@ -792,5 +855,9 @@ body.dark-mode{
 
     .card .description {
         font-size: 0.5em;
+    }
+
+    .chapter-view-list {
+        font-size: 0.9em;
     }
 }

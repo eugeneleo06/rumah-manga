@@ -32,7 +32,8 @@ require('layout/header.php');
             <div class="title-container">
                 <h1>LATEST UPDATES</h1>
             </div>
-            <div class="card-container">
+            <div class="carousel-container">
+                <div class="carousel">
                 <?php 
                     foreach($mangas_latest as $v) {
                         echo '<div class="card" onclick="location.href=\'view.php?q='.$v['secure_id'].'#col1\';">';
@@ -49,6 +50,7 @@ require('layout/header.php');
                         echo '</div>';
                     }
                 ?>
+                </div>
             </div>
 
             <div class="title-container">
@@ -78,6 +80,9 @@ require('layout/header.php');
                         echo '</div>';
                     }
                     ?>
+                    <div class="col-12" style="margin-top:2vh;margin-bottom:2vh;">
+                        <button type="submit" class="btn btn-success btn-search w-100" onclick="location.href='search.php?filters%5BAction%5D=included'">MORE</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,4 +124,77 @@ require('layout/header.php');
 
         window.addEventListener('scroll', checkScroll);
         });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const cards = Array.from(carousel.children);
+            const totalCards = cards.length;
+            let cardsToShow = window.innerWidth > 768 ? 4 : 3; // 4 for desktop, 3 for mobile
+            let currentIndex = 0;
+
+            function cloneCards() {
+                for (let i = 0; i < cardsToShow; i++) {
+                    const cloneFirst = cards[i].cloneNode(true);
+                    const cloneLast = cards[totalCards - 1 - i].cloneNode(true);
+                    carousel.appendChild(cloneFirst);
+                    carousel.insertBefore(cloneLast, carousel.firstChild);
+                }
+            }
+
+            function updateCarousel() {
+                const cardWidth = carousel.querySelector('.card').offsetWidth;
+                const offset = -((currentIndex + cardsToShow) * cardWidth);
+                carousel.style.transform = `translateX(${offset}px)`;
+            }
+
+            function moveNext() {
+                currentIndex++;
+                if (currentIndex >= totalCards) {
+                    currentIndex = 0;
+                    setTimeout(() => {
+                        carousel.style.transition = 'none';
+                        updateCarousel();
+                        requestAnimationFrame(() => {
+                            carousel.style.transition = 'transform 0.8s ease-in-out';
+                        });
+                    }, 800); // Match this duration with the CSS transition duration
+                } else {
+                    updateCarousel();
+                }
+            }
+
+            function movePrev() {
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = totalCards - 1;
+                    setTimeout(() => {
+                        carousel.style.transition = 'none';
+                        updateCarousel();
+                        requestAnimationFrame(() => {
+                            carousel.style.transition = 'transform 0.8s ease-in-out';
+                        });
+                    }, 800); // Match this duration with the CSS transition duration
+                } else {
+                    updateCarousel();
+                }
+            }
+
+            cloneCards();
+            updateCarousel();
+
+            setInterval(moveNext, 3000); // Move to next card every 3 seconds
+
+            window.addEventListener('resize', () => {
+                const newCardsToShow = window.innerWidth > 768 ? 4 : 3;
+                if (cardsToShow !== newCardsToShow) {
+                    cardsToShow = newCardsToShow;
+                    cloneCards();
+                    updateCarousel();
+                }
+            });
+        });
+
+
+
     </script>
