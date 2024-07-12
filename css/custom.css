@@ -785,10 +785,18 @@ body.dark-mode{
     cursor: grab;
 }
 
+.carousel .card {
+    box-shadow: none;
+    width: 80%!important;
+    flex: 1 0 calc(25% - 100px); /* Adjusted for 4 items on desktop with margin */
+    box-sizing: border-box;
+    margin: 0 50px; /* Add horizontal margin */
+}
+
 @media (max-width: 768px) {
     .carousel .card {
-        flex: 1 0 calc(33.33% - 12vh); /* Adjusted for 3 items on mobile with margin */
-        margin: 0 6vh; /* Add horizontal margin */
+        flex: 1 0 calc(33.33% - 20px); /* Adjusted for 3 items on mobile with margin */
+        margin: 0 10px; /* Add horizontal margin */
     }
 }
 
@@ -800,14 +808,7 @@ body.dark-mode{
     text-align: center;
 }
 
-.carousel .card {
-    box-shadow: none;
-    width: 80%!important;
-    flex: 1 0 calc(25% - 12vh); /* Adjusted for 4 items on desktop with margin */
-    box-sizing: border-box;
-    margin: 0 6vh; /* Add horizontal margin */
 
-}
 
 @media (min-width: 991px) {
     .nav-button a{
