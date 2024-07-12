@@ -785,14 +785,8 @@ body.dark-mode{
     cursor: grab;
 }
 
-.card {
-    flex: 1 0 calc(25% - 12vh); /* Adjusted for 4 items on desktop with margin */
-    box-sizing: border-box;
-    margin: 0 6vh; /* Add horizontal margin */
-}
-
 @media (max-width: 768px) {
-    .card {
+    .carousel .card {
         flex: 1 0 calc(33.33% - 12vh); /* Adjusted for 3 items on mobile with margin */
         margin: 0 6vh; /* Add horizontal margin */
     }
@@ -808,10 +802,11 @@ body.dark-mode{
 
 .carousel .card {
     box-shadow: none;
-}
-
-.carousel .card {
     width: 80%!important;
+    flex: 1 0 calc(25% - 12vh); /* Adjusted for 4 items on desktop with margin */
+    box-sizing: border-box;
+    margin: 0 6vh; /* Add horizontal margin */
+
 }
 
 @media (min-width: 991px) {
